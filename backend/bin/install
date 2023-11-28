@@ -3,7 +3,7 @@
 VENV_NAME=venv
 
 python -m venv "${VENV_NAME}"
-source "${VENV_NAME}/bin/activate"
+source "${VENV_NAME}/backend/bin/activate"
 python -m pip install --upgrade pip
 python -m pip install -r requirements.txt
 
