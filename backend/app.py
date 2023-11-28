@@ -1,16 +1,22 @@
 from fastapi import FastAPI
 from fastapi.responses import FileResponse
+from fastapi.staticfiles import StaticFiles
 
 from pydantic import BaseModel
 
-app = FastAPI()
+
+app = FastAPI(title="meme test api")
+api_app = FastAPI(title="api app")
+app.mount("/api",api_app)
+
+
 
 
 class Item(BaseModel):
     item_id: int
 
 
-@app.get("/")
+@app.get("/meow/")
 async def root():
     return {"message": "Hello World HEH"}
 
@@ -33,3 +39,6 @@ async def list_items():
 @app.post("/items/")
 async def create_item(item: Item):
     return item
+
+
+app.mount("/",StaticFiles(directory="gui",html=True),name="gui")
