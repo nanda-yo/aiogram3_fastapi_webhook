@@ -36,5 +36,6 @@ async def set_webhook(the_bot: Bot) -> None:
 
 
 async def start_bot():
-    print(f"setting webhook")
+    if config.debug:
+        print(f"setting webhook")
     await set_webhook(bot)
