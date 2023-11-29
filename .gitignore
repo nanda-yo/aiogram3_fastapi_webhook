@@ -1,0 +1,7 @@
+.env
+.frontend/
+.idea
+.venv
+.venv311
+frontend/
+/frontend/cyclic.sh_testapp/.gitignore
