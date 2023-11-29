@@ -10,8 +10,8 @@ tg_bot_router = APIRouter()
 
 @tg_bot_router.post(config.webhook_path)
 async def bot_webhook(update: dict,
-                      x-telegram-bot-api-secret-token: Annotated[str | None, Header()] = None) -> None | dict:
-    if x-telegram-bot-api-secret-token != config.secret_tg_token:
+                      x_telegram_bot_api_secret_token: Annotated[str | None, Header()] = None) -> None | dict:
+    if x_telegram_bot_api_secret_token != config.secret_tg_token:
         print(f" Secret token doesnt match")
         return {f"Token mismatch, error."}
     telegram_update = types.Update(**update)
