@@ -13,6 +13,6 @@ async def bot_webhook(update: dict,
                       x_telegram_bot_api_secret_token: Annotated[str | None, Header()] = None) -> None | dict:
     if x_telegram_bot_api_secret_token != config.secret_tg_token:
         print(f" Secret token doesnt match")
-        return {f"Token mismatch, error."}
+        return {"status": "Token mismatch", "message": f"Expected => {config.secret_tg_token}, /n Received : {x_telegram_bot_api_secret_token}!"}
     telegram_update = types.Update(**update)
     await dp.feed_webhook_update(bot=bot,update=telegram_update)
