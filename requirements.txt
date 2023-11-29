@@ -16,6 +16,7 @@ idna==3.4
 magic-filter==1.0.12
 multidict==6.0.4
 pydantic==2.5.1
+pydantic-settings==2.1.0
 pydantic_core==2.14.3
 python-dotenv==1.0.0
 PyYAML==6.0.1
