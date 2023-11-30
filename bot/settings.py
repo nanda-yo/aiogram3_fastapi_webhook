@@ -1,5 +1,6 @@
 from functools import lru_cache
 from pydantic_settings import BaseSettings, SettingsConfigDict
+from pydantic import SecretStr
 
 class Settings(BaseSettings):
     model_config = SettingsConfigDict(
@@ -7,7 +8,7 @@ class Settings(BaseSettings):
         #env_file_encoding = 'utf-8'
     )
     debug: bool=True
-    bot_token: str = "default_bot_token_string"
+    bot_token: SecretStr = "default_bot_token_string"
     webhook_url:str="https://meow.meow.meow"
     webhook_path:str="/path/to/webhook"
     secret_tg_token:str="hehehehehehehehehemeow"
