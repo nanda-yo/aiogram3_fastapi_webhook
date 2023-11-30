@@ -10,7 +10,7 @@ tg_router = Router(name="test")
 dp = Dispatcher()
 
 dp.include_router(tg_router)
-bot = Bot(token=config.bot_token, parse_mode=ParseMode.HTML)
+bot = Bot(token=config.bot_token.get_secret_value(), parse_mode=ParseMode.HTML)
 
 async def set_webhook(the_bot: Bot) -> None:
     async def check_webhook() -> WebhookInfo | None:
