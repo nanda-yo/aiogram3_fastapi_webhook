@@ -1,4 +1,4 @@
-from fastapi import APIRouter, HTTPException
+from fastapi import APIRouter
 from schemas.api_schemas import Item
 
 api_app = APIRouter()
@@ -29,10 +29,4 @@ async def list_items():
 async def create_item(item: Item):
     return item
 
-@api_app.post("/sendMessageForm")
-async def sendPlainMessageForm(name:str,text:str,captcha:bool):
-    if captcha:
-        return {"Name": name,"text":text}
-    else:
-        raise HTTPException(status_code=409,detail="Wrong captcha",headers={"X-error": "Captcha mismatch"})
-        return captcha
+

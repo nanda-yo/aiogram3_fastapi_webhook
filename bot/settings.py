@@ -12,6 +12,7 @@ class Settings(BaseSettings):
     webhook_url:str="https://meow.meow.meow"
     webhook_path:str="/path/to/webhook"
     secret_tg_token:str="hehehehehehehehehemeow"
+    user_id : int="1234567890"
     print(f"{bot_token}")
 
 
