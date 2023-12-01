@@ -34,4 +34,5 @@ async def sendPlainMessageForm(name:str,text:str,captcha:bool):
     if captcha:
         return {"Name": name,"text":text}
     else:
-        return HTTPException(status_code=409,detail="Wrong captcha")
+        raise HTTPException(status_code=409,detail="Wrong captcha",headers={"X-error": "Captcha mismatch"})
+        return captcha
