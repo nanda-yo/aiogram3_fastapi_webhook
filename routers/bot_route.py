@@ -1,5 +1,5 @@
 from typing import Annotated
-from fastapi import APIRouter, Header, HTTPException
+from fastapi import APIRouter, Header, HTTPException, Response
 from aiogram import types
 from bot.bot import dp,bot
 from bot.settings import get_settings
@@ -20,7 +20,8 @@ async def bot_webhook(update: dict,
 async def sendPlainMessageForm(name:str,text:str,captcha:bool):
     if captcha:
         #return {"Name": name,"text":text}
-        return await bot.send_message(config.user_id, (f"Name: {name}\nText: {text}"))
+        await bot.send_message(config.user_id, (f"Name: {name}\nText: {text}"))
+        return Response(status_code=200)
     else:
         raise HTTPException(status_code=409,detail="Wrong captcha",headers={"X-error": "Captcha mismatch"})
         return captcha

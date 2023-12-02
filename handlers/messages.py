@@ -14,7 +14,4 @@ async def bot_cmd_start(message: Message) -> None:
 @tg_router.message(Command("UserData"))
 async def bot_cmd_user_data(message:Message) -> None:
     await message.answer(f"Your ID is : {message.from_user.id} and your full name is : {message.from_user.full_name}")
-# @tg_router.message()
-# async def bot_send_plain_message(message:Message) -> None:
-#     await
 
