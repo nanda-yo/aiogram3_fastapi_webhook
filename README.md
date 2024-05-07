@@ -1,7 +1,7 @@
 # aiogram3 fastapi webhook #
  Deployment ready telegram bot template using FastAPI and aiogram3 via webhook for cyclic.sh.
 
-There're some WIP API routes, and compiled vue/vite being served on "/", also WIP.
+There're some API routes, and compiled vue/vite being served on "/" as a placeholder.
 # To deploy on cyclic
 - fork this repo
 - go to variables section of your deployed app

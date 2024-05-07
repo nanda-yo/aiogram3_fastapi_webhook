@@ -12,14 +12,12 @@ tg_bot_router = APIRouter()
 async def bot_webhook(update: dict,
                       x_telegram_bot_api_secret_token: Annotated[str | None, Header()] = None) -> None | dict:
     if x_telegram_bot_api_secret_token != config.secret_tg_token:
-        print(f" Secret token doesnt match")
         return {"status": "Token mismatch", "message": f"Expected => {config.secret_tg_token}, /n Received : {x_telegram_bot_api_secret_token}!"}
     telegram_update = types.Update(**update)
     await dp.feed_webhook_update(bot=bot,update=telegram_update)
 @tg_bot_router.post("/sendMessageForm")
 async def sendPlainMessageForm(name:str,text:str,captcha:bool):
     if captcha:
-        #return {"Name": name,"text":text}
         await bot.send_message(config.user_id, (f"Name: {name}\nText: {text}"))
         return Response(status_code=200)
     else:

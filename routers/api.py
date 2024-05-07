@@ -1,5 +1,6 @@
 from fastapi import APIRouter
 from schemas.api_schemas import Item
+from fastapi.responses import FileResponse
 
 api_app = APIRouter()
 
@@ -12,7 +13,7 @@ async def meow():
 
 @api_app.get('/favicon.ico', include_in_schema=False)
 async def favicon():
-    return FileResponse('favicon.ico')
+    return FileResponse('gui/favicon.ico')
 
 
 @api_app.get("/item/{item_id}")
